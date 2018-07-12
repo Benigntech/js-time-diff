@@ -1,0 +1,23 @@
+{
+  "name": "time-diff",
+  "version": "0.0.1",
+  "description": "time difference",
+  "main": "src/time-diff.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santanup/time-diff.git"
+  },
+  "keywords": [
+    "time",
+    "time-diff"
+  ],
+  "author": "Santanu Prasad Sahoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santanup/time-diff/issues"
+  },
+  "homepage": "https://github.com/santanup/time-diff#readme"
+}

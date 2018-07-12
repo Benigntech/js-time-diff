@@ -1,0 +1,7 @@
+# User-specific stuff:
+/.idea/
+!/.idea/codeStyleSettings.xml
+!/.idea/copyright/profiles_settings.xml
+!/.idea/jsLibraryMappings.xml
+!/.idea/symfony2.xml
+!/.idea/vcs.xml
