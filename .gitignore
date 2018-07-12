@@ -1,3 +1,6 @@
+# NPM modules:
+/node_modules
+
 # User-specific stuff:
 /.idea/
 !/.idea/codeStyleSettings.xml
