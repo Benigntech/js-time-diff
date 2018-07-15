@@ -7,15 +7,15 @@ An extremely lightweight time difference javascript library.
 ```$xslt
 npm i js-time-diff
 ```
-##Usages
+## Usages
 
-Use in HTML
+##### Use in HTML
 ```html
 <script type="text/JavaScript" src="dist/time-diff.min.js" />
 
 //use global variable TimeDiff
 ```
-Or use in javascript
+##### Or use in javascript
 ```js
 import TimeDiff from 'js-time-diff'; //es6
 
