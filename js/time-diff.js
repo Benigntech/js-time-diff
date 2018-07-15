@@ -6,11 +6,11 @@
  * @returns {Error|string}
  * @constructor
  */
-const TimeDiff = ( startTime, endTime = new Date() ) => {
+const TimeDiff = ( startTime, endTime ) => {
 
     startTime = new Date( startTime );
 
-    endTime = new Date( endTime );
+    endTime = endTime ? new Date( endTime ) : new Date();
 
     const startTimeInMS = startTime.getTime();
 
@@ -24,7 +24,11 @@ const TimeDiff = ( startTime, endTime = new Date() ) => {
      * time difference in milliseconds
      * @type {number}
      */
-    const  timeDifference = endTimeInMS - startTimeInMS;
+    let timeDifference = endTimeInMS - startTimeInMS;
+
+    const tense = timeDifference > 0 ? 'ago' : 'after';
+
+    timeDifference = timeDifference > 0 ? timeDifference : - timeDifference;
 
     /**
      * time difference in seconds
@@ -66,20 +70,20 @@ const TimeDiff = ( startTime, endTime = new Date() ) => {
     if ( monthsAgo >= 12 ){
         const year = Math.round( yearsAgo );
         if( year === 1 ){
-            return year+ " year ago"
+            return `${year} year ${tense}`;
         }
         else{
-            return year+ " years ago"
+            return `${year} years ${tense}`;
         }
     }
 
     else if( daysAgo >= 30 ){
         const month = Math.round( monthsAgo );
         if( month === 1 ){
-            return month+ " month ago"
+            return `${month} month ${tense}`;
         }
         else{
-            return month+ " months ago"
+            return `${month} months ${tense}`;
         }
 
     }
@@ -87,44 +91,53 @@ const TimeDiff = ( startTime, endTime = new Date() ) => {
 
         const day = Math.round( daysAgo );
         if( day === 1 ){
-            return day+ " day ago"
+            return `${day} day ${tense}`;
         }
         else{
-            return day+ " days ago"
+            return `${day} days ${tense}`;
         }
     }
     else if( minutesAgo >= 60 ){
 
         const hour = Math.round( hoursAgo );
         if( hour === 1 ){
-            return hour+ " hour ago"
+            return `${hour} hour ${tense}`;
         }
         else{
-            return hour+ " hours ago"
+            return `${hour} hours ${tense}`;
         }
     }
     else if( secondsAgo >= 60 )
     {
         const minute = Math.round( minutesAgo );
         if( minute === 1 ){
-            return minute+ " minute ago"
+            return `${minute} minute ${tense}`;
         }
         else{
-            return minute+ " minutes ago"
+            return `${minute} minutes ${tense}`;
         }
     }
     else {
         const second = Math.round( secondsAgo );
-        if( second === 1 ){
-            return second+ " second ago"
+        if (second === 1) {
+            return `${second} second ${tense}`;
         }
-        else{
-            return second+ " seconds ago"
+        else {
+            return `${second} seconds ${tense}`;
         }
     }
 
 };
 
-window.timeDiff = TimeDiff;
+// window.timeDiff = TimeDiff;
 
-export default TimeDiff;
+// export default TimeDiff;
+
+((() => {
+    if (typeof define === 'function' && define.amd)
+        define('TimeDiff', () => TimeDiff);
+    else if (typeof module !== 'undefined' && module.exports)
+        module.exports = TimeDiff;
+    else
+        window.TimeDiff = TimeDiff;
+}))();
