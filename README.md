@@ -5,7 +5,11 @@ An extremely lightweight time difference javascript library.
 
 ## Install
 ```$xslt
+// npm
 npm i js-time-diff
+
+// yarn
+yarn add js-time-diff
 ```
 ## Usages
 
